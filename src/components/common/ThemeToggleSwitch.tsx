@@ -5,8 +5,12 @@ interface MyProps {
 }
 
 function ThemeToggleSwitch(props: MyProps) {
+    const clickHandler = () => {
+        props.onToggle(false);
+    }
+
     return (
-        <div className={styles["switch"]}>
+        <div className={styles["switch"]} onClick={clickHandler}>
             <img className={styles["icon"]} src="./assets/images/icon-sun-dark.svg" />
             <div className={styles["toggle"]}>
                 <div className={styles["circle"]}></div>

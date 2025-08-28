@@ -6,7 +6,7 @@ interface MyProps {
 
 function QuestionScreen(props: MyProps) {
     return (
-        <div>You want questions? We got questions!</div>
+        <div>Selected quiz: {props.currentQuiz.title}</div>
     );
 }
 

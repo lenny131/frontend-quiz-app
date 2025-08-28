@@ -1,0 +1,123 @@
+@use "screen-sizes" as s;
+
+@mixin _rubik {
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+@mixin _rubik-medium {
+    @include _rubik;
+    font-weight: 500;
+    font-style: normal;
+}
+
+@mixin _rubik-regular {
+    @include _rubik;
+    font-weight: 400;
+    font-style: normal;
+}
+
+@mixin _rubik-light {
+    @include _rubik;
+    font-weight: 300;
+    font-style: normal;
+}
+
+@mixin _rubik-italic {
+    @include _rubik;
+    font-weight: 400;
+    font-style: italic;
+}
+
+@mixin text-preset-1 {
+    @include _rubik-medium;
+    font-size: 5.5rem;
+    line-height: 100%;
+    letter-spacing: 0;
+
+    @media (min-width: s.$tablet) {
+        font-size: 9rem;
+    }
+}
+
+@mixin _text-preset-2 {
+    font-size: 2.5rem;
+    line-height: 100%;
+    letter-spacing: 0;
+
+    @media (min-width: s.$tablet) {
+        font-size: 4rem;
+    }
+}
+
+@mixin text-preset-2-medium {
+    @include _text-preset-2;
+    @include _rubik-medium;
+}
+
+@mixin text-preset-2-light {
+    @include _text-preset-2;
+    @include _rubik-light;
+}
+
+@mixin text-preset-3 {
+    @include _rubik-medium;
+    font-size: 1.25rem;
+    line-height: 120%;
+    letter-spacing: 0;
+
+    @media (min-width: s.$tablet) {
+        font-size: 2.25rem;
+    }
+}
+
+@mixin text-preset-4 {
+    @include _rubik-medium;
+    font-size: 1.125rem;
+    line-height: 100%;
+    letter-spacing: 0;
+
+    @media (min-width: s.$tablet) {
+        font-size: 1.75rem;
+    }
+}
+
+@mixin _text-preset-5 {
+    font-size: 0.875rem;
+    line-height: 150%;
+    letter-spacing: 0;
+
+    @media (min-width: s.$tablet) {
+        font-size: 1.5rem;
+    }
+}
+
+@mixin text-preset-5-medium {
+    @include _text-preset-5;
+    @include _rubik-medium;
+}
+
+@mixin text-preset-5-regular {
+    @include _text-preset-5;
+    @include _rubik-regular;
+}
+
+@mixin text-preset-6 {
+    /*
+        Note: In the design document, there is a mobile version of text preset 5.
+        I am changing this to text preset 6 because it makes more sense.
+        Example: In the design document, for the start screen description text, the
+        desktop and tablet versions use text preset 6, but the mobile version uses text preset 5.
+        I think the mobile version should also use text preset 6.
+        I assume this was an error in design.
+    */
+    @include _rubik-italic;
+    font-size: 0.875rem;
+    line-height: 150%;
+    letter-spacing: 0;
+
+    @media (min-width: s.$tablet) {
+        font-size: 1.25rem;
+    }
+}

@@ -1,0 +1,30 @@
+@use "../../style-presets/typography" as t;
+@use "../../style-presets/colors" as c;
+@use "../../style-presets/spacing" as s;
+
+.header-container {
+    display: flex;
+    flex-direction: column;
+    gap: s.spacing(200);
+}
+
+.title-container {
+    display: flex;
+    flex-direction: column;
+    gap: s.spacing(100);
+}
+
+.title {
+    @include t.text-preset-2-medium;
+    color: c.$blue-900;
+}
+
+.subtitle {
+    @include t.text-preset-2-light;
+    color: c.$blue-900;
+}
+
+.description {
+    @include t.text-preset-6;
+    color: c.$grey-500;
+}

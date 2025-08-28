@@ -1,0 +1,5 @@
+@use 'sass:math';
+
+@function spacing($spacing-value) {
+    @return (1rem * (math.div($spacing-value, 200)));
+}

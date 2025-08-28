@@ -1,0 +1,17 @@
+@use "../../style-presets/spacing" as s;
+
+.screen {
+    display: flex;
+    flex-direction: column;
+    padding-inline: s.spacing(300);
+    padding-block-start: s.spacing(400);
+    gap: s.spacing(500);
+}
+
+.part1 {
+    
+}
+
+.part2 {
+
+}

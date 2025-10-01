@@ -1,0 +1,31 @@
+@use "../../style-presets/typography" as t;
+@use "../../style-presets/colors" as c;
+@use "../../style-presets/spacing" as s;
+
+.question-container {
+    display: flex;
+    flex-direction: column;
+    gap: s.spacing(300);
+}
+
+.question-text-container {
+    display: flex;
+    flex-direction: column;
+    gap: s.spacing(200);
+}
+
+.question-number {
+    @include t.text-preset-6;
+    color: c.$grey-500;
+}
+
+.question-text {
+    @include t.text-preset-3;
+    color: c.$blue-900;
+}
+
+.answer-container {
+    display: flex;
+    flex-direction: column;
+    gap: s.spacing(200);
+}

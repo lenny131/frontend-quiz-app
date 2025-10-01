@@ -1,4 +1,6 @@
 @use "./style-presets/colors" as c;
+@use "./style-presets/spacing" as s;
+@use "./style-presets/typography" as t;
 
 * {
     margin: 0;
@@ -17,4 +19,13 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-color: c.$grey-50;
+}
+
+button {
+    padding: s.spacing(200);
+    color: c.$white;
+    background-color: c.$purple-600;
+    border-radius: 0.75rem;
+    border: 0;
+    @include t.text-preset-4;
 }

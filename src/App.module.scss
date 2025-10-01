@@ -32,27 +32,3 @@
     font-style: normal;
     color: c.$grey-500;
 }
-
-.quiz-banner {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 1rem;
-
-    img {
-        width: 2.5rem;
-        height: 2.5rem;
-        padding: s.spacing(75);
-        border-radius: 0.25rem;
-    }
-
-    p {
-        @include t.text-preset-4;
-        color: c.$blue-900
-    }
-}
-
-.empty-banner {
-    width: 2.5rem;
-    height: 2.5rem;
-}

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import styles from "./App.module.scss";
 import data from "./data/data.json";
 import Quiz from "./models/Quiz";
@@ -6,10 +6,13 @@ import Question from "./models/Question";
 import StartScreen from "./components/screens/StartScreen";
 import ThemeToggleSwitch from "./components/common/ThemeToggleSwitch";
 import QuestionScreen from "./components/screens/QuestionScreen";
+import QuizBanner from "./components/common/QuizBanner";
+import ResultScreen from "./components/screens/ResultScreen";
 
 function App() {
     const [quizzes, setQuizzes] = useState(new Array<Quiz>())
     const [currentQuiz, setCurrentQuiz] = useState<Quiz | null>(null);
+    const score = useRef(0);
     
     /*
         Current Screen Values:
@@ -32,39 +35,37 @@ function App() {
         setCurrentScreen(2);
     }
 
+    const showResults = (newScore: number) => {
+        score.current = newScore;
+        setCurrentScreen(3);
+    }
+
+    const returnHome = () => {
+        score.current = 0;
+        setCurrentQuiz(null);
+        setCurrentScreen(1);
+    }
+
     let screenComponent: React.ReactElement;
     switch (currentScreen) {
         case 1:
             screenComponent = <StartScreen quizzes={quizzes} onQuizSelected={startQuiz}></StartScreen>;
             break;
         case 2:
-            screenComponent = <QuestionScreen currentQuiz={currentQuiz!}></QuestionScreen>;
+            screenComponent = <QuestionScreen currentQuiz={currentQuiz!} onQuizComplete={showResults}></QuestionScreen>;
             break;
         case 3:
-            screenComponent = <div>nope</div>;
+            screenComponent = <ResultScreen currentQuiz={currentQuiz!} score={score.current} onReturnHome={returnHome}></ResultScreen>;
             break;
         default:
             throw new Error(`Invalid value for currentScreen: ${currentScreen}`);
-    }
-
-    let quizBanner: React.ReactElement;
-    if (currentQuiz == null) {
-        quizBanner = <div className={styles["empty-banner"]}></div>;
-    }
-    else {
-        const style = {backgroundColor: currentQuiz.iconBackgroundColor}
-        quizBanner =
-            <div className={styles["quiz-banner"]}>
-                <img src={currentQuiz.icon} alt={currentQuiz.title} style={style} />
-                <p>{currentQuiz.title}</p>
-            </div>;
     }
 
     return (
         <>
             <div className={styles["app-container"]}>
                 <header className={styles["app-header"]}>
-                    {quizBanner}
+                    <QuizBanner currentQuiz={currentQuiz}></QuizBanner>
                     <ThemeToggleSwitch onToggle={(isOn: boolean) => {alert(`Dark mode on: ${isOn}`)}}></ThemeToggleSwitch>
                 </header>
                 <main className={styles["app-main"]}>

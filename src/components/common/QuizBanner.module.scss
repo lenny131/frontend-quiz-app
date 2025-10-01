@@ -1,0 +1,27 @@
+@use "../../style-presets/spacing" as s;
+@use "../../style-presets/typography" as t;
+@use "../../style-presets/colors" as c;
+
+.quiz-banner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+
+    img {
+        width: 2.5rem;
+        height: 2.5rem;
+        padding: s.spacing(75);
+        border-radius: 0.25rem;
+    }
+
+    p {
+        @include t.text-preset-4;
+        color: c.$blue-900
+    }
+}
+
+.empty-banner {
+    width: 2.5rem;
+    height: 2.5rem;
+}

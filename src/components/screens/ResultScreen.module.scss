@@ -1,0 +1,52 @@
+@use "../../style-presets/typography" as t;
+@use "../../style-presets/colors" as c;
+@use "../../style-presets/spacing" as s;
+
+.header-container {
+    display: flex;
+    flex-direction: column;
+    gap: s.spacing(100);
+}
+
+.title {
+    @include t.text-preset-2-light;
+    color: c.$blue-900;
+}
+
+.subtitle {
+    @include t.text-preset-2-medium;
+    color: c.$blue-900;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    gap: s.spacing(200);
+}
+
+.result-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: s.spacing(200);
+    border-radius: 0.75rem;
+    background-color: c.$white;
+    padding: s.spacing(400);
+}
+
+.score-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: s.spacing(200);
+}
+
+.score {
+    @include t.text-preset-1;
+    color: c.$blue-900;
+}
+
+.total-score {
+    @include t.text-preset-4;
+    color: c.$grey-500;
+}

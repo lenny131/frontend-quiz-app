@@ -13,15 +13,68 @@
     gap: 1rem;
 }
 
-.icon {
+.image-icon {
     width: 2.5rem;
     height: 2.5rem;
     padding: s.spacing(75);
-    //background-color: c.$grey-50;
     border-radius: 0.25rem;
+    
+}
+
+.text-icon {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.25rem;
+    background-color: c.$grey-50;
+
+    span {
+        @include t.text-preset-4;
+        color: c.$grey-500;
+    }
 }
 
 .option-text {
     @include t.text-preset-4;
     color: c.$blue-900
+}
+
+.option[data-isactive] {
+    // Using box-shadow instead of border so the contents won't shift
+    box-shadow: inset 0 0 0 0.1875rem c.$purple-600;
+
+    .text-icon {
+        background-color: c.$purple-600;
+
+        span {
+            color: c.$white;
+        }
+    }
+}
+
+.option[data-iscorrect] {
+    box-shadow: inset 0 0 0 0.1875rem c.$green-500;
+
+    .text-icon {
+        background-color: c.$green-500;
+
+        span {
+            color: c.$white;
+        }
+    }
+}
+
+.option[data-iswrong] {
+    box-shadow: inset 0 0 0 0.1875rem c.$red-500;
+
+    .text-icon {
+        background-color: c.$red-500;
+
+        span {
+            color: c.$white;
+        }
+    }
 }
